@@ -1,0 +1,14 @@
+header{
+    background-color: red;
+}
+aside {
+    background-color: blue;
+    width: 250px;
+    height: 250px;
+}
+main {
+    background-color: rgba(166, 255, 112, 0.36);
+}
+footer {
+    background-color: coral;
+}
