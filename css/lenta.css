@@ -1,0 +1,25 @@
+div{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #ff02e7;
+    float: left;
+}
+
+div:nth-of-type(5n+0){
+    float: none;
+}
+.juoda{
+    background-color: darkgray;
+}
+.melyna{
+    background-color: blue;
+}
+.zalia{
+    background-color: green;
+}
+.raudona{
+    background-color: red;
+}
