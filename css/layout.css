@@ -29,8 +29,9 @@ footer {
 @media screen and (max-width: 992px){
     #grid {
         grid-template-areas:
-                'h a'
-                'm a'
-                'f a';
+                'h h'
+                'm m'
+                'a a'
+                'f f';
     }
 }

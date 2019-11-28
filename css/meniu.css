@@ -1,0 +1,34 @@
+@keyframes Hover_animacija {
+    0% { color: blue;}
+    50% { color: red;}
+    100% { color: blue;}
+}
+
+header ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header ul li {
+    list-style-type: none;
+    float: left;
+    margin: 20px 10px 20px 0;
+    padding-right: 10px;
+    border-right: 2px solid green;
+}
+
+header ul li:last-child {
+    border-right: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header ul li:hover a {
+    animation-name: Hover_animacija;
+    animation-duration: 1s;
+}
