@@ -8,9 +8,9 @@ function sleptiSheetus(){
     }
 }
 
-function rodytiSheeta(event){
+function rodytiSheeta(){
     console.log('OK');
-    let id = event.element.data.sheet;
+    let id = this.dataset.sheet;
     document.getElementById(id).style.display = 'block';
 }
 
