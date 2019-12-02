@@ -1,0 +1,24 @@
+.portfolio > .item {
+    float: left;
+    width: 33%;
+    height: 200px;
+    border: 1px solid black;
+    box-shadow: 3px 3px black;
+}
+
+#lightBulb {
+    width: 640px;
+    height: 940px;
+    background: url('../img/light_bulb.png') 640px 940px;
+}
+
+.tabai>div{
+    float: left;
+    padding: 10px;
+}
+.sheet {
+    display: none;
+}
+#sheet1 {
+    display: block;
+}

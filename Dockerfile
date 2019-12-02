@@ -29,37 +29,25 @@ RUN docker-php-ext-configure hash --with-mhash \
         zip \
         gd \
     && pecl install \
-        redis-3.1.3 \
         mcrypt-1.0.1 \
     && docker-php-ext-enable \
-        redis \
         mcrypt \
         opcache
 
-COPY ./php.ini /usr/local/etc/php/
-
-COPY ./memory-limit-php.ini /usr/local/etc/php/conf.d/memory-limit-php.ini
-
-RUN sed -ie s/pm.max_children\ =\ 5/pm.max_children\ =\ 200/ /usr/local/etc/php-fpm.d/www.conf &&\
-    sed -ie s/pm.start_servers\ =.*/pm.start_servers\ =\ 100/ /usr/local/etc/php-fpm.d/www.conf &&\
-    sed -ie s/pm.min_spare_servers\ =.*/pm.min_spare_servers\ =\ 50/ /usr/local/etc/php-fpm.d/www.conf &&\
-    sed -ie s/pm.max_spare_servers\ =.*/pm.max_spare_servers\ =\ 100/ /usr/local/etc/php-fpm.d/www.conf
-
 # Copy sources
-COPY --chown=www-data:www-data . /app
+COPY --chown=www-data:www-data . /var/www
 
-VOLUME /data
+WORKDIR /var/www
 
-WORKDIR  /app
+RUN chmod -R a+w /var/www
+RUN chown -R www-data:www-data /var/www
 
-RUN chmod -R a+w /app
-
-RUN ls -la /app
-
+RUN ls -la /var/www
 
 COPY docker-php-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
 # Start php-fpm
+EXPOSE 9000
 CMD ["php-fpm"]
